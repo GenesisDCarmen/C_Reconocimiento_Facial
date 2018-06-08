@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">Aplicación de reconocimiento facial.</string>
-    <string name="take_a_picture">Tomar una foto</string>
-    <string name="open_from_gallery">Abrir desde la galería</string>
-    <string name="here_goes_a_picture_previsualizer">Here goes a picture previsualizer.</string>
+    <string name="app_name">MyApp</string>
+    <string name="imagen">imagen</string>
+    <string name="boton1">boton1</string>
+    <string name="boton2">boton2</string>
+
+    <string name="textview">Texto de prueba</string>
+    <string name="edittext">ingresar dato...</string>
+
 </resources>
