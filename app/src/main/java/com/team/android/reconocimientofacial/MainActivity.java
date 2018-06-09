@@ -9,6 +9,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+//Other imports
+import android.app.Activity;
+import android.database.Cursor;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
+
 public class MainActivity extends AppCompatActivity {
 
     ImageView imgPreview;
@@ -46,4 +56,15 @@ public class MainActivity extends AppCompatActivity {
             imgPreview.setImageBitmap(imageBitmap);
         }
     }
+    private static int RESULT_LOAD_IMG = 1;
+    String imgDecodableString;
+
+    public void loadImagefromGallery(View view) {
+        // Create intent to Open Image applications like Gallery, Google Photos
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        // Start the Intent
+        startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+    }
+
 }
