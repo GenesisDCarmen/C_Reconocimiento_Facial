@@ -14,10 +14,9 @@ import android.app.Activity;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.provider.MediaStore;
-import android.view.View;
-import android.widget.ImageView;
+import android.provider.MediaStore;;
 import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
-    @Override
+    //@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+    //@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
@@ -56,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             imgPreview.setImageBitmap(imageBitmap);
         }
     }
+
     private static int RESULT_LOAD_IMG = 1;
     String imgDecodableString;
 
@@ -65,6 +65,14 @@ public class MainActivity extends AppCompatActivity {
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         // Start the Intent
         startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+    }
+
+    protected void onActivityResult2(int requestCode, int resultCode, Intent data) {
+        if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imgPreview.setImageBitmap(imageBitmap);
+        }
     }
 
 }
